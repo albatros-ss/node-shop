@@ -43,7 +43,9 @@ app.use(
     store,
   })
 );
-app.use(csrf());
+if (!process.env.MY_TEST) {
+  app.use(csrf());
+}
 app.use(helmet());
 app.use(compression());
 app.use(fileMiddleware.single("avatar"));
@@ -75,3 +77,5 @@ async function start(): Promise<void> {
 }
 
 start().then();
+
+module.exports = app;

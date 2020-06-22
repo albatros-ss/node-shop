@@ -28,7 +28,7 @@ router.delete("/remove/:id", async (req: Req, res: Response) => {
     await req.user.populate("cart.items.courseId").execPopulate();
     res.json();
   } catch (e) {
-    res.status(500);
+    res.status(500).json();
   }
 });
 
@@ -44,7 +44,7 @@ router.get("/", async (req: Req, res: Response) => {
     };
     return res.json(resObj);
   } catch (e) {
-    res.status(500);
+    res.status(500).json();
   }
 });
 

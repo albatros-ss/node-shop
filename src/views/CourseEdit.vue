@@ -44,7 +44,9 @@
         Редактировать курс
       </button>
     </form>
-    <button class="btn red" @click="removeCourse">Удалить курс</button>
+    <button class="btn red" data-test="remove" @click="removeCourse">
+      Удалить курс
+    </button>
   </div>
 </template>
 
@@ -59,6 +61,9 @@ export default class EditCourse extends Vue {
   price = NaN;
   error = "";
   async created(): Promise<void> {
+    await this.getInfo();
+  }
+  async getInfo(): Promise<void> {
     try {
       const { data } = await this.$http.get(
         "/course/" + this.$route.params.id + "/edit"

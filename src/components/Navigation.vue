@@ -23,11 +23,12 @@
           tag="li"
           active-class="active"
           exact
+          data-info="enter"
         >
           <a>Войти</a>
         </router-link>
         <li v-if="isAuth">
-          <a href="/" @click.prevent="logout">Выйти</a>
+          <a href="/" @click.prevent="logout" data-info="out">Выйти</a>
         </li>
       </ul>
     </div>

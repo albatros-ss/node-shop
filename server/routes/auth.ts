@@ -20,7 +20,7 @@ const transporter = nodemailer.createTransport(
 
 router.get("/info", async (req: Req, res: Response) => {
   res.json({
-    token: req.csrfToken(),
+    token: req.csrfToken ? req.csrfToken() : "",
     isAuth: Boolean(req.session.user),
     userId: req.user ? req.user._id.toString() : "",
     confirm: req.user ? req.user.confirm : false,

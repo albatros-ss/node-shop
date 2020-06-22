@@ -5,7 +5,7 @@ import VueAxios from "vue-axios";
 import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.min.js";
 import "./registerServiceWorker";
-import router from "./router";
+import { router } from "./router";
 import store from "./store";
 
 Vue.config.productionTip = false;

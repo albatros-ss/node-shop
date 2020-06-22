@@ -1,6 +1,6 @@
 <template>
   <div class="course">
-    <h1>{{ course.title }}</h1>
+    <h1 data-test="title">{{ course.title }}</h1>
     <img :src="course.img" :alt="course.title" />
     <p class="price big">{{ toCurrency }}</p>
   </div>

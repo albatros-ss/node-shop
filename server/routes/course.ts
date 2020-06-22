@@ -32,7 +32,7 @@ router.put("/edit", courseValidators, async (req: Req, res: Response) => {
     }
     res.json();
   } catch (e) {
-    res.status(500);
+    res.status(500).send();
   }
 });
 
@@ -41,7 +41,7 @@ router.get("/:id", async (req: Request, res: Response) => {
     const course = await Course.findById(req.params.id);
     res.json({ course });
   } catch (e) {
-    res.status(500);
+    res.status(500).send();
   }
 });
 
@@ -50,7 +50,7 @@ router.delete("/remove/:id", async (req: Req, res: Response) => {
     await Course.deleteOne({ _id: req.params.id, userId: req.user._id });
     res.json();
   } catch (e) {
-    res.status(500);
+    res.status(500).json();
   }
 });
 

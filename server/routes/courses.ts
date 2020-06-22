@@ -28,7 +28,7 @@ router.get("/", async (req: Req, res: Response) => {
       userId: user,
     });
   } catch (e) {
-    res.status(500);
+    res.status(500).json();
   }
 });
 
